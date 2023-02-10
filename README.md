@@ -7,7 +7,7 @@ currently working on the Node JS prototype! <br>
 
 Problems
 <table>
-    <tr style="background-color:DarkGray">
+    <tr style="background-color:gray">
         <td>Fixed</td>
         <td>Location</td>
         <td>Problem</td>
