@@ -20,16 +20,29 @@ class Plant{
         this.name=this.origName+" "+this.currentEnding
         this.foodReq*=this.foodReqFactor
     }
-    feed=function(){
-        this.food++
-        player.food--
-        if(this.food==this.foodReq){
-            this.grow()
-        }
+    
+}
+function grow(plant){
+    plant.level++
+    console.log(plant.name+" level up!")
+    plant.currentEnding=plant.nameEndings[plant.level]
+    plant.name=plant.origName+" "+plant.currentEnding
+    plant.foodReq*=plant.foodReqFactor
+}
+function feed(plant){
+    plant.food++
+    player.food--
+    if(plant.food==plant.foodReq){
+        grow(plant)
     }
 }
-var catPlant=new Plant({origName:"Cat",nameEndings:["Sprout","Stalk","Flower"],maxLevel:2,foodReq:2})
+function setup(plant){
+    plant.currentEnding=plant.nameEndings[plant.level]
+    plant.name=plant.origName+" "+plant.currentEnding
 
+}
+var catPlant=new Plant({origName:"Cat",nameEndings:["Sprout","Stalk","Flower"],maxLevel:2,foodReq:2})
+setup(catPlant)
 for(let i=0;i<catPlant.foodReq;i++){
-    catPlant.feed()
+    feed(catPlant)
 }
